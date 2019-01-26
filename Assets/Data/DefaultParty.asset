@@ -18,5 +18,5 @@ MonoBehaviour:
   partyGoerCountStdDev: 15
   partyGoerCountMin: 1
   partyGoerCountMax: 50
-  partyGoerPrefab: {fileID: 4203398637199008994, guid: 703616d973913ca4ea9a49f6b69348fe,
+  partyGoerPrefab: {fileID: 1010486053292474716, guid: c994e6d599eb0bc409e9dbee9ece0159,
     type: 3}
