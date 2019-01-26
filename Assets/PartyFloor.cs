@@ -50,9 +50,11 @@ public class PartyFloor : MonoBehaviour
     }
 
     void GeneratePartygoers(PartySettings settings){
+        List<GameObject> possiblePartyGoers = settings.GetRandomDancers(3);
         int partyGoerCount = settings.GeneratePartygoerCount();
         for(int i = 0; i < partyGoerCount; i++){
-            SpawnPartyGoer(settings.partyGoerPrefab);
+            GameObject partyGoerPrefab = Util.RandomSelection<GameObject>(possiblePartyGoers, p => settings.DancerWeight(possiblePartyGoers.IndexOf(p)));
+            SpawnPartyGoer(partyGoerPrefab);
         }
     }
 
