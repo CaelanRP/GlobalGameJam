@@ -54,4 +54,17 @@ public class PartySettings : ScriptableObject
         }
         return dancersToReturn;
     }
+
+    public List<GameObject> GetRandomProps(int num){
+        List<GameObject> temp = new List<GameObject>(standardProps);
+        List<GameObject> propsToReturn = new List<GameObject>();
+        while (num > 0){
+            if (temp.Count == 0){
+                temp = new List<GameObject>(standardProps);
+            }
+            propsToReturn.Add(temp[Util.random.Next(temp.Count)]);
+            num--;
+        }
+        return propsToReturn;
+    }
 }

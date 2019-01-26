@@ -54,16 +54,17 @@ public class PartyFloor : MonoBehaviour
     public void GenerateParty(PartySettings settings){
         Debug.Log("Generating party.");
         ClearParty();
-        //GeneratePartygoers(settings);
         GenerateProps(settings);
+        GeneratePartygoers(settings);
     }
 
     void GenerateProps(PartySettings settings){
-        //List<GameObject> possiblePartyGoers = settings.GetRandomDancers(2);
+        
         int propCount = settings.GeneratePropCount();
+        List<GameObject> possibleProps = settings.GetRandomProps(propCount);
         for(int i = 0; i < propCount; i++){
 
-            PartyProp prop = testProp.GetComponent<PartyProp>().Spawn();
+            PartyProp prop = possibleProps[i].GetComponent<PartyProp>().Spawn();
             if (prop){
                 props.Add(prop);
             }

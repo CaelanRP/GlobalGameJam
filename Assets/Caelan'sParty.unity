@@ -581,7 +581,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   propMargin: 0.05
   partygoers: []
+  props: []
   defaultParty: {fileID: 11400000, guid: 0bd476ce6dc4e284280b16c550a95c39, type: 2}
+  testProp: {fileID: 0}
 --- !u!1 &1234780099
 GameObject:
   m_ObjectHideFlags: 0

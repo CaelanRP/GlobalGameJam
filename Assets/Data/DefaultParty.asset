@@ -14,6 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BPM: 120
   danceIntensity: 1
+  propCountAvg: 4
+  propCountStdDev: 3
+  propCountMin: 0
+  propCountMax: 8
+  standardProps:
+  - {fileID: 3651297269831177877, guid: a4083935606e37c459e479d66fc700a2, type: 3}
+  - {fileID: 3651297269831177877, guid: fa4c890b98c1f14409624bbea6eb3a71, type: 3}
+  - {fileID: 7272865252722562994, guid: 91faa35e3e29ae44a8802f6a4efa658a, type: 3}
+  - {fileID: 7272865252722562994, guid: c49f3f4fd06e6854992bd4be7cf9135c, type: 3}
   partyGoerCountAvg: 40
   partyGoerCountStdDev: 30
   partyGoerCountMin: 1

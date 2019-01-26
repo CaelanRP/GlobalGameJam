@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8901847919716112880}
   - component: {fileID: 3434523490967066670}
   m_Layer: 0
-  m_Name: speakers
+  m_Name: speakersSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 3651297269831177877}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.70710677}
   m_LocalPosition: {x: -0.44, y: 0, z: -4.24}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 3651297269831142079}
   - {fileID: 3651297269831142071}

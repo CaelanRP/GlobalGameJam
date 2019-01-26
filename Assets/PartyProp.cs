@@ -9,14 +9,19 @@ using NaughtyAttributes;
 
 public class PartyProp : MonoBehaviour
 {
-    public Rigidbody rb;
-    public Vector3 minSpawnPos, maxSpawnPos;
-    void Awake(){
-        rb = GetComponent<Rigidbody>();
+    private Rigidbody _rb;
+    private Rigidbody rb{
+        get{
+            if (!_rb){
+                _rb = GetComponent<Rigidbody>();
+            }
+            return _rb;
+        }
     }
+    public Vector3 minSpawnPos, maxSpawnPos;
 
     public PartyProp Spawn(){
-        PartyProp prop = Instantiate(gameObject, GetSpawnVector(), Quaternion.identity).GetComponent<PartyProp>();
+        PartyProp prop = Instantiate(gameObject, GetSpawnVector(), transform.rotation).GetComponent<PartyProp>();
         
         RaycastHit[] hits = rb.SweepTestAll(Vector3.up, 0.1f);
         int tries = 4;
