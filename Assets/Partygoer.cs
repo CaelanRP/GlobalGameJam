@@ -9,5 +9,5 @@ using NaughtyAttributes;
 
 public class Partygoer : PartyProp
 {
-    
+    public Transform lookSpot;
 }
