@@ -108,7 +108,7 @@ public class PartyFloor : MonoBehaviour
         pos = transform.TransformPoint(pos);
 
         RaycastHit hit;
-        if (Physics.SphereCast(pos, 0.5f, Vector3.zero, out hit, 0.1f, PartyProp.LAYER)){
+        if (Physics.SphereCast(pos, 3f, Vector3.zero, out hit, 0.1f, PartyProp.LAYER)){
             return;
         }
 

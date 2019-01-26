@@ -21,6 +21,7 @@ MonoBehaviour:
   standardProps:
   - {fileID: 3651297269831177877, guid: a4083935606e37c459e479d66fc700a2, type: 3}
   - {fileID: 7272865252722562994, guid: 91faa35e3e29ae44a8802f6a4efa658a, type: 3}
+  - {fileID: 8580668015682350451, guid: 9a827f57015dbbd4b8485edd96cce479, type: 3}
   partyGoerCountAvg: 40
   partyGoerCountStdDev: 30
   partyGoerCountMin: 1

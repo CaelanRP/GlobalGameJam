@@ -41,6 +41,10 @@ public static class Util
         return Quaternion.Euler(0,angle,0);
     }
 
+    public static T RandomSelection<T>(this IEnumerable<T> enumerable){
+        return RandomSelection(enumerable, t => 1);
+    }
+
     public static T RandomSelection<T>(this IEnumerable<T> enumerable, Func<T, int> weightFunc)
     {
         int totalWeight = 0; // this stores sum of weights of all elements before current
@@ -59,5 +63,23 @@ public static class Util
 		}
 
         return selected; // when iterations end, selected is some element of sequence. 
+    }
+
+    public static List<T> RandomSelections<T>(this IEnumerable<T> enumerable, int count){
+        List<T> temp = enumerable.ToList();
+        List<T> listToReturn = new List<T>();
+        if (temp.Count == 0){
+            return listToReturn;
+        }
+        while(count > 0){
+            T item = RandomSelection(temp, t => 1);
+            listToReturn.Add(item);
+            temp.Remove(item);
+            if (temp.Count == 0){
+                temp = enumerable.ToList();
+            }
+            count--;
+        }
+        return listToReturn;
     }
 }
