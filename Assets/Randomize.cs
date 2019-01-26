@@ -11,7 +11,7 @@ public class Randomize : MonoBehaviour
     public bool randomScale = true;
     public Vector2 scaleMinMax = new Vector2(0.5f, 1.5f);
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         float randX = 0;
         float randY = 0;

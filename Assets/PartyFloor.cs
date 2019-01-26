@@ -17,7 +17,21 @@ public class PartyFloor : MonoBehaviour
 
     public List<Partygoer> partygoers;
     public PartySettings defaultParty;
+
+    public bool testMode;
+    public int bpm = 120;
+
+    public static float normalizedBPM
+    {
+        get
+        {
+            return instance.bpm / 120.0f;
+        }
+    }
+    
+    public static PartyFloor instance;
     void Awake(){
+        instance = this;
         minBound = new Vector2(
             -0.5f + propMargin,
             -0.5f + propMargin
@@ -32,8 +46,10 @@ public class PartyFloor : MonoBehaviour
     }
     private void Start()
     {
-
-        GenerateParty(defaultParty);
+        if (!testMode)
+        {
+            GenerateParty(defaultParty);
+        }
     }
     void Update(){
         if (input.GetButtonDown("LightSwitch")){

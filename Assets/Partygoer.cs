@@ -9,5 +9,16 @@ using NaughtyAttributes;
 
 public class Partygoer : PartyProp
 {
+    private const string Name = "speed";
     public Transform lookSpot;
+    public Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();   
+    }
+    private void Update()
+    {
+        anim.SetFloat(Name, PartyFloor.normalizedBPM);
+    }
 }
