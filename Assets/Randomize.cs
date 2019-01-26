@@ -16,7 +16,7 @@ public class Randomize : MonoBehaviour
     [ShowIf("randomRotation")]
     public Vector2 scaleMinMax = new Vector2(0.5f, 1.5f);
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (randomRotation){
             float randX = 0;

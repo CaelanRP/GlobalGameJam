@@ -9,6 +9,7 @@ using NaughtyAttributes;
 
 public class Partygoer : PartyProp
 {
+    private const string Name = "speed";
     public Transform lookSpot;
     Animator animator;
     public string danceTrigger;

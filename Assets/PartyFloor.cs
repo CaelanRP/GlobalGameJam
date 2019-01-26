@@ -19,11 +19,23 @@ public class PartyFloor : MonoBehaviour
     [HideInInspector]
     public List<PartyProp> props;
     public PartySettings defaultParty;
+    
+    public int bpm = 120;
 
+    public static float normalizedBPM
+    {
+        get
+        {
+            return instance.bpm / 120.0f;
+        }
+    }
+    
+    public static PartyFloor instance;
     public bool generateOnStart;
 
     public GameObject testProp;
     void Awake(){
+        instance = this;
         minBound = new Vector2(
             -0.5f + propMargin,
             -0.5f + propMargin

@@ -22,6 +22,7 @@ public class IndividualCamera : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(1,5));
             PartyFloor pf = GameObject.FindObjectOfType<PartyFloor>();
+            if (pf.partygoers.Count == 0) yield break;
             Transform target = pf.partygoers[Random.Range(0, pf.partygoers.Count)].lookSpot;
             transform.position = target.position;
             target.rotation = target.rotation;
