@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 7272865252722562995}
   - component: {fileID: 7272865252722562989}
   - component: {fileID: 7272865252722562988}
-  m_Layer: 0
+  - component: {fileID: 5947475637314782547}
+  m_Layer: 12
   m_Name: Beachball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e91297f40d1d243a1cd6d15360f987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumpForce: 0.25
-  gravity: 0.01
+  bumpForce: 0.2
+  gravity: 0.02
 --- !u!54 &7272865252722562988
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -135,10 +136,24 @@ Rigidbody:
   m_GameObject: {fileID: 7272865252722562994}
   serializedVersion: 2
   m_Mass: 0.02
-  m_Drag: 1
+  m_Drag: 0.1
   m_AngularDrag: 0.25
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5947475637314782547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272865252722562994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a071c8aeeef5948ad3f005bed24a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawnPos: {x: -4, y: 2, z: -4}
+  maxSpawnPos: {x: 4, y: 4, z: 4}

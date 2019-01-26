@@ -14,9 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BPM: 120
   danceIntensity: 1
+  propCountAvg: 4
+  propCountStdDev: 3
+  propCountMin: 0
+  propCountMax: 8
+  standardProps:
+  - {fileID: 3651297269831177877, guid: a4083935606e37c459e479d66fc700a2, type: 3}
+  - {fileID: 7272865252722562994, guid: 91faa35e3e29ae44a8802f6a4efa658a, type: 3}
   partyGoerCountAvg: 40
-  partyGoerCountStdDev: 15
+  partyGoerCountStdDev: 30
   partyGoerCountMin: 1
   partyGoerCountMax: 50
-  partyGoerPrefab: {fileID: 1010486053292474716, guid: c994e6d599eb0bc409e9dbee9ece0159,
-    type: 3}
+  standardDancers:
+  - {fileID: 1010486053292474716, guid: c994e6d599eb0bc409e9dbee9ece0159, type: 3}
+  - {fileID: 8069039334819838020, guid: ee20f1fade4a91f49a0e92a2a6bca2e3, type: 3}
+  rareDancers:
+  - {fileID: 4728432387559784943, guid: 32b08308b1439d64b8af7e371e395c58, type: 3}
+  dancerWeights: 0500000001000000
+  rareDancerChance: 0.05

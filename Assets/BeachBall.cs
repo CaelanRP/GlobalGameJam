@@ -21,7 +21,7 @@ public class BeachBall : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.transform.CompareTag("Wall"))
+        if (collision.collider.GetComponentInParent<Partygoer>())
         {
             r.AddForce(Vector3.up * bumpForce + Vector3.right * bumpForce * Random.Range(-0.5f, .5f) + Vector3.forward * bumpForce * Random.Range(-0.5f, .5f), ForceMode.Impulse);
         }

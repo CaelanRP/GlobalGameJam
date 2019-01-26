@@ -40,4 +40,24 @@ public static class Util
         int angle = random.Next(0,360);
         return Quaternion.Euler(0,angle,0);
     }
+
+    public static T RandomSelection<T>(this IEnumerable<T> enumerable, Func<T, int> weightFunc)
+    {
+        int totalWeight = 0; // this stores sum of weights of all elements before current
+        T selected = default(T); // currently selected element
+        foreach (var data in enumerable)
+        {
+            int weight = weightFunc(data); // weight of current element
+            int value = random.Next(totalWeight + weight); // random value
+            if (value >= totalWeight) // probability of this is weight/(totalWeight+weight)
+                selected = data; // it is the probability of discarding last selected element and selecting current one instead
+            totalWeight += weight; // increase weight sum
+        }
+
+		if (selected == null){
+
+		}
+
+        return selected; // when iterations end, selected is some element of sequence. 
+    }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3651297269831142065}
   - component: {fileID: 3651297269830371995}
   - component: {fileID: 3651297269829240923}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,9 @@ GameObject:
   - component: {fileID: 455178081205100201}
   - component: {fileID: 4316597521887487439}
   - component: {fileID: 8901847919716112880}
-  m_Layer: 0
+  - component: {fileID: 3434523490967066670}
+  - component: {fileID: 4079552964904175435}
+  m_Layer: 12
   m_Name: speakers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,6 +163,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 4, z: 2}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &3434523490967066670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651297269831177877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a071c8aeeef5948ad3f005bed24a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawnPos: {x: -4, y: -1, z: -4}
+  maxSpawnPos: {x: 4, y: -1, z: -4}
+--- !u!114 &4079552964904175435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651297269831177877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0de639ccf0bae4a95f86c2e75c3164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomRotation: 0
+  rotX: 1
+  rotY: 1
+  rotZ: 1
+  randomScale: 1
+  scaleMinMax: {x: 0.6, y: 1}
 --- !u!1 &3651297269831177879
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +206,7 @@ GameObject:
   - component: {fileID: 3651297269831142071}
   - component: {fileID: 3651297269830371993}
   - component: {fileID: 3651297269829240921}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +283,7 @@ GameObject:
   - component: {fileID: 3651297269831142079}
   - component: {fileID: 3651297269830371997}
   - component: {fileID: 3651297269829240925}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
