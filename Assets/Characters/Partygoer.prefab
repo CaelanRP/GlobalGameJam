@@ -949,6 +949,7 @@ GameObject:
   - component: {fileID: 1010486053292474718}
   - component: {fileID: 1010486053292474717}
   - component: {fileID: 8200091223064962080}
+  - component: {fileID: 841609741846807706}
   m_Layer: 0
   m_Name: Partygoer
   m_TagString: Untagged
@@ -1050,8 +1051,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 4571742792987899376}
-  rigids: []
+  jiggle: 0
   intensity: 0.5
+--- !u!114 &841609741846807706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010486053292474716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9677e1bdf7f00429c222d364193d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1010486053509465291
 GameObject:
   m_ObjectHideFlags: 0
