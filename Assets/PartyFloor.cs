@@ -34,9 +34,15 @@ public class PartyFloor : MonoBehaviour
 
         input = ReInput.players.SystemPlayer;
     }
+    private void Start()
+    {
+
+        GenerateParty(defaultParty);
+    }
     void Update(){
         if (input.GetButtonDown("LightSwitch")){
             GenerateParty(defaultParty);
+
         }
     }
 
@@ -54,6 +60,7 @@ public class PartyFloor : MonoBehaviour
     public void GenerateParty(PartySettings settings){
         Debug.Log("Generating party.");
         ClearParty();
+        LightManager.instance.Randomize();
         GenerateProps(settings);
         GeneratePartygoers(settings);
     }
