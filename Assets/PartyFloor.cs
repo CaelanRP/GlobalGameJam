@@ -14,9 +14,13 @@ public class PartyFloor : MonoBehaviour
     public float propMargin;
 
     Rewired.Player input;
-
+    [HideInInspector]
     public List<Partygoer> partygoers;
+    [HideInInspector]
+    public List<PartyProp> props;
     public PartySettings defaultParty;
+
+    public GameObject testProp;
     void Awake(){
         minBound = new Vector2(
             -0.5f + propMargin,
@@ -41,12 +45,33 @@ public class PartyFloor : MonoBehaviour
             Destroy(partygoers[0].gameObject);
             partygoers.RemoveAt(0);
         }
+        while(props.Count > 0){
+            Destroy(props[0].gameObject);
+            props.RemoveAt(0);
+        }
     }
 
     public void GenerateParty(PartySettings settings){
         Debug.Log("Generating party.");
         ClearParty();
-        GeneratePartygoers(settings);
+        //GeneratePartygoers(settings);
+        GenerateProps(settings);
+    }
+
+    void GenerateProps(PartySettings settings){
+        //List<GameObject> possiblePartyGoers = settings.GetRandomDancers(2);
+        int propCount = settings.GeneratePropCount();
+        for(int i = 0; i < propCount; i++){
+
+            PartyProp prop = testProp.GetComponent<PartyProp>().Spawn();
+            if (prop){
+                props.Add(prop);
+            }
+            /* 
+            GameObject partyGoerPrefab = Util.RandomSelection<GameObject>(possiblePartyGoers, p => settings.DancerWeight(possiblePartyGoers.IndexOf(p)));
+            SpawnPartyGoer(partyGoerPrefab);
+            */
+        }
     }
 
     void GeneratePartygoers(PartySettings settings){
@@ -67,5 +92,9 @@ public class PartyFloor : MonoBehaviour
 
         Partygoer partygoer = Instantiate(prefab, pos, Util.RandomYEuler()).GetComponent<Partygoer>();
         partygoers.Add(partygoer);
+    }
+
+    void SpawnProp(){
+
     }
 }
