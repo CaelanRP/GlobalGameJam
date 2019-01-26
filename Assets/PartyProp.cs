@@ -9,6 +9,7 @@ using NaughtyAttributes;
 
 public class PartyProp : MonoBehaviour
 {
+    public const int LAYER = 12;
     private Rigidbody _rb;
     private Rigidbody rb{
         get{

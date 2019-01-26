@@ -10,4 +10,13 @@ using NaughtyAttributes;
 public class Partygoer : PartyProp
 {
     public Transform lookSpot;
+    Animator animator;
+    public string danceTrigger;
+
+    void Awake(){
+        animator = GetComponent<Animator>();
+        if (!string.IsNullOrEmpty(danceTrigger)){
+            animator.SetTrigger(danceTrigger);
+        }
+    }
 }

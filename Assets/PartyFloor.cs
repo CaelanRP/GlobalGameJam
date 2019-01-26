@@ -20,6 +20,8 @@ public class PartyFloor : MonoBehaviour
     public List<PartyProp> props;
     public PartySettings defaultParty;
 
+    public bool generateOnStart;
+
     public GameObject testProp;
     void Awake(){
         minBound = new Vector2(
@@ -36,8 +38,9 @@ public class PartyFloor : MonoBehaviour
     }
     private void Start()
     {
-
-        GenerateParty(defaultParty);
+        if (generateOnStart){
+            GenerateParty(defaultParty);
+        }
     }
     void Update(){
         if (input.GetButtonDown("LightSwitch")){
@@ -86,7 +89,13 @@ public class PartyFloor : MonoBehaviour
         List<GameObject> possiblePartyGoers = settings.GetRandomDancers(2);
         int partyGoerCount = settings.GeneratePartygoerCount();
         for(int i = 0; i < partyGoerCount; i++){
-            GameObject partyGoerPrefab = Util.RandomSelection<GameObject>(possiblePartyGoers, p => settings.DancerWeight(possiblePartyGoers.IndexOf(p)));
+            GameObject partyGoerPrefab;
+            if (Util.random.NextDouble() < settings.rareDancerChance){
+                partyGoerPrefab = Util.RandomSelection<GameObject>(settings.rareDancers, d => 1);
+            }
+            else{
+                partyGoerPrefab = Util.RandomSelection<GameObject>(possiblePartyGoers, p => settings.DancerWeight(possiblePartyGoers.IndexOf(p)));
+            }
             SpawnPartyGoer(partyGoerPrefab);
         }
     }
@@ -97,6 +106,11 @@ public class PartyFloor : MonoBehaviour
 
         Vector3 pos = new Vector3(xPos, yPos, 0);
         pos = transform.TransformPoint(pos);
+
+        RaycastHit hit;
+        if (Physics.SphereCast(pos, 0.5f, Vector3.zero, out hit, 0.1f, PartyProp.LAYER)){
+            return;
+        }
 
         Partygoer partygoer = Instantiate(prefab, pos, Util.RandomYEuler()).GetComponent<Partygoer>();
         partygoers.Add(partygoer);
