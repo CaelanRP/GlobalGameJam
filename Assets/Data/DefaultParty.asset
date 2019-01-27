@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultParty
   m_EditorClassIdentifier: 
   songs:
-  - {fileID: 11400000, guid: 6bd0de50aa790834888999821f660ffa, type: 2}
+  - {fileID: 11400000, guid: 78a9f452ef6d22049a4a2835b79f4da2, type: 2}
   danceIntensity: 1
   propCountAvg: 4
   propCountStdDev: 3
@@ -27,6 +27,7 @@ MonoBehaviour:
   - {fileID: 5013022024426272431, guid: 7f0779f8e6e7afd488444c3b4498ea32, type: 3}
   - {fileID: 454593082, guid: d56fe9b579015a047abbbeef4128c6c9, type: 3}
   - {fileID: 488823143, guid: 39b64b5c8c3e1c44b99bb66ca88ace72, type: 3}
+  requiredProps: []
   partyGoerCountAvg: 30
   partyGoerCountStdDev: 10
   partyGoerCountMin: 1
@@ -43,3 +44,4 @@ MonoBehaviour:
   - {fileID: 1294852433132717423, guid: 8d25eacfc8f8cb04ba8fd202fc88290d, type: 3}
   dancerWeights: 0500000001000000
   rareDancerChance: 0.05
+  randomGuyLocations: []

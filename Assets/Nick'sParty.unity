@@ -356,6 +356,12 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 8612262628296726168}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &688872187 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8612262628681632867, guid: e83d52b4a957aa54396ebd8786a28435,
+    type: 3}
+  m_PrefabInstance: {fileID: 8612262628296726168}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &892137203
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,11 +478,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7234a84978df8284db640b71a3765903, type: 2}
   - {fileID: 11400000, guid: 619d4241fe42b194bab9cee9b24d32a7, type: 2}
   - {fileID: 11400000, guid: eed91ee2575931942b4579c2268d9ae7, type: 2}
+  songs:
+  - {fileID: 11400000, guid: 6bd0de50aa790834888999821f660ffa, type: 2}
+  - {fileID: 11400000, guid: e458c12928fcd9949989e4ac30dd1d0e, type: 2}
   currentSong: {fileID: 0}
   generateOnStart: 1
   lightsOn: 0
   rarePartyChance: 0.1
   minBetweenRareParties: 5
+  source: {fileID: 688872187}
 --- !u!1 &1234780099
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ public class PartyFloor : MonoBehaviour
     private PartySettings currentParty;
     public List<PartySettings> rareParties;
 
+    public List<Song> songs;
+
     public static float normalizedBPM
     {
         get
@@ -59,6 +61,7 @@ public class PartyFloor : MonoBehaviour
     }
     private void Start()
     {
+        SwitchSong();
         if (generateOnStart){
             StartParty();
         }
@@ -76,9 +79,33 @@ public class PartyFloor : MonoBehaviour
         }
     }
 
+    int song = 0;
     void Update(){
         if (input.GetButtonDown("LightSwitch")){
             StartParty();
+        }
+        if (Input.GetKeyDown(KeyCode.X)) 
+        {
+            SwitchSong();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            Application.Quit();
+        }
+    }
+    public AudioSource source;
+    void SwitchSong()
+    {
+        currentSong = songs[song];
+        if (source.clip != currentSong.clip)
+        {
+            source.clip = currentSong.clip;
+            source.Play();
+        }
+        song++;
+        if (song >= songs.Count)
+        {
+            song = 0;
         }
     }
 
@@ -215,13 +242,13 @@ public class PartyFloor : MonoBehaviour
         GenerateParty(currentParty);
     }
 
-    void SetParty(){
-        if (rareParties.Count > 0 && partiesSinceRare > minBetweenRareParties && Util.random.NextDouble() < rarePartyChance){
+    void SetParty() {
+        if (rareParties.Count > 0 && partiesSinceRare > minBetweenRareParties && Util.random.NextDouble() < rarePartyChance) {
             currentParty = Util.RandomSelection(rareParties);
         }
-        else{
+        else {
             currentParty = Util.RandomSelection(standardParties);
         }
-        currentSong = currentParty.GetSong();
+        
     }
 }
