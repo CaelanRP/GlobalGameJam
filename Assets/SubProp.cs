@@ -17,7 +17,7 @@ public class SubProp : MonoBehaviour
     }
 
     void Awake(){
-        if (Util.random.NextDouble() < propChance){
+        if (possibleProps.Count > 0 && Util.random.NextDouble() < propChance){
             GameObject obj = Util.RandomSelection(possibleProps);
             Instantiate(obj,transform.position, obj.transform.rotation);
         }

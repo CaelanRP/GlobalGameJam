@@ -6,10 +6,12 @@ public class Speaker : MonoBehaviour
 {
     public static UnityAction thump;
     public static Speaker mainSpeaker;
+    public bool isSecretSpeaker;
     private void Start()
     {
-        mainSpeaker = this;
-
+        if (isSecretSpeaker){
+            mainSpeaker = this;
+        }
     }
     
     public void Thump()

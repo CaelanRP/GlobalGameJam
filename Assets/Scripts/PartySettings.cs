@@ -17,7 +17,7 @@ public class PartySettings : ScriptableObject
     [BoxGroup("Props")]
     public float propCountAvg, propCountStdDev, propCountMin, propCountMax;
     [BoxGroup("Props")][ReorderableList]
-    public List<GameObject> standardProps;
+    public List<GameObject> standardProps, requiredProps;
     [BoxGroup("Partygoers")]
     public float partyGoerCountAvg, partyGoerCountStdDev, partyGoerCountMin, partyGoerCountMax;
     [BoxGroup("Partygoers")][ReorderableList]
@@ -26,6 +26,8 @@ public class PartySettings : ScriptableObject
     private List<int> dancerWeights;
     [BoxGroup("Partygoers")]
     public float rareDancerChance;
+    [BoxGroup("Partygoers")]
+    public List<Vector3> randomGuyLocations;
 
     public int GeneratePartygoerCount(){
         float f = Util.GetNormalDistFloat(partyGoerCountAvg, partyGoerCountStdDev, partyGoerCountMin, partyGoerCountMax);

@@ -11,17 +11,15 @@ public class Partygoer : PartyProp
 {
     private const string Name = "speed";
     public Transform lookSpot;
-    public string danceTrigger;
+    public int danceType = -1;
 
     protected override void Awake(){
         base.Awake();
-        if (!string.IsNullOrEmpty(danceTrigger)){
-            animator.SetTrigger(danceTrigger);
-        }
-        animator.SetFloat("dance", UnityEngine.Random.Range(0, 4));
     }
 
     void Start(){
         PartyFloor.partygoers.Add(this);
+        int dance = danceType == -1 ? UnityEngine.Random.Range(0, 4) : danceType;
+        animator.SetFloat("dance", danceType);
     }
 }

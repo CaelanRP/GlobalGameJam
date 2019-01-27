@@ -110,6 +110,10 @@ public class PartyFloor : MonoBehaviour
     }
 
     void GenerateProps(PartySettings settings){
+        // Generate required props
+        foreach(GameObject g in settings.requiredProps){
+            PartyProp prop = g.GetComponent<PartyProp>().Spawn();
+        }
         
         int propCount = settings.GeneratePropCount();
         List<GameObject> possibleProps = settings.GetRandomProps(propCount);
@@ -127,26 +131,55 @@ public class PartyFloor : MonoBehaviour
     }
 
     void GeneratePartygoers(PartySettings settings){
-        List<GameObject> possiblePartyGoers = settings.GetRandomDancers(2);
-        int partyGoerCount = settings.GeneratePartygoerCount();
-        for(int i = 0; i < partyGoerCount; i++){
-            GameObject partyGoerPrefab;
-            if (settings.rareDancers.Count > 0 && Util.random.NextDouble() < settings.rareDancerChance){
-                partyGoerPrefab = Util.RandomSelection<GameObject>(settings.rareDancers, d => 1);
+        int num = 2;
+        if (settings.standardDancers.Count > 0){
+            List<GameObject> possiblePartyGoers = settings.GetRandomDancers(num);
+            int[] dances = new int[num];
+            // generate dance types
+            for(int i = 0; i < dances.Length; i++){
+                dances[i] = UnityEngine.Random.Range(0, 4);
             }
-            else{
-                partyGoerPrefab = Util.RandomSelection<GameObject>(possiblePartyGoers, p => settings.DancerWeight(possiblePartyGoers.IndexOf(p)));
+
+            int partyGoerCount = settings.GeneratePartygoerCount();
+            for(int i = 0; i < partyGoerCount; i++){
+                GameObject partyGoerPrefab;
+                if (settings.rareDancers.Count > 0 && Util.random.NextDouble() < settings.rareDancerChance){
+                    partyGoerPrefab = Util.RandomSelection<GameObject>(settings.rareDancers, d => 1);
+                    SpawnPartyGoer(partyGoerPrefab);
+                }
+                else{
+                    
+                    partyGoerPrefab = Util.RandomSelection<GameObject>(possiblePartyGoers, p => settings.DancerWeight(possiblePartyGoers.IndexOf(p)));
+                    SpawnPartyGoer(partyGoerPrefab, dances[possiblePartyGoers.IndexOf(partyGoerPrefab)]);
+                }
+                
             }
-            SpawnPartyGoer(partyGoerPrefab);
+        }
+
+        // Spawn required dudes
+        foreach(Vector3 vec in settings.randomGuyLocations){
+            SpawnPartyGoer(settings, vec);
         }
     }
 
-    void SpawnPartyGoer(GameObject prefab){
+    // Spawn literally anyone
+    void SpawnPartyGoer(PartySettings settings, Vector3 pos){
+        GameObject partyGoerPrefab;
+                partyGoerPrefab = Util.RandomSelection<GameObject>(settings.standardDancers, d => 1);
+                SpawnPartyGoer(partyGoerPrefab, pos); 
+    }
+
+    void SpawnPartyGoer(GameObject prefab, int dance = -1){
         float xPos = UnityEngine.Random.Range(minBound.x, maxBound.x);
         float yPos = UnityEngine.Random.Range(minBound.y, maxBound.y);
 
         Vector3 pos = new Vector3(xPos, yPos, 0);
         pos = transform.TransformPoint(pos);
+
+        SpawnPartyGoer(prefab, pos, dance);
+    }
+
+    void SpawnPartyGoer(GameObject prefab, Vector3 pos, int dance = -1){
 
         RaycastHit hit;
         if (Physics.SphereCast(pos, 3f, Vector3.zero, out hit, 0.1f, PartyProp.LAYER)){
@@ -154,6 +187,7 @@ public class PartyFloor : MonoBehaviour
         }
 
         Partygoer partygoer = Instantiate(prefab, pos, Util.RandomYEuler()).GetComponent<Partygoer>();
+        partygoer.danceType = dance;
         partygoers.Add(partygoer);
     }
 
