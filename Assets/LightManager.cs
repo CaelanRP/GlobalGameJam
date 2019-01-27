@@ -41,9 +41,15 @@ public class LightManager : MonoBehaviour
             dirlights.SetActive(false);
             float spotAngle = Random.Range(10, 100);
             Spotlite[] spots = spotlights.GetComponentsInChildren<Spotlite>();
+            int i = 0;
             foreach (Spotlite s in spots)
             {
-                s.Randomize(spotAngle);
+                s.Randomize(spotAngle, ambientGradient.Evaluate((randomColor + (i * 0.2f)) % 1));
+                i++;
+                if (i >= 3)
+                {
+                    i = 0;
+                }
 
             }
         }

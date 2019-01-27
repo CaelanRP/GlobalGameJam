@@ -14,10 +14,11 @@ public class Spotlite : MonoBehaviour
         Randomize();
     }
 
-    public void Randomize(float spotAngle)
+    public void Randomize(float spotAngle, Color c)
     {
         rotation = Random.Range(-360, 360);
         lite.spotAngle = spotAngle;
+        lite.color = c;
     }
 
     public void Randomize()
@@ -30,6 +31,6 @@ public class Spotlite : MonoBehaviour
     void Update()
     {
         transform.Rotate(0, rotation * Time.deltaTime, 0);
-        lite.color = LightManager.instance.ambientGradient.Evaluate(Time.time % 1);
+        //lite.color = LightManager.instance.ambientGradient.Evaluate(Time.time % 1);
     }
 }

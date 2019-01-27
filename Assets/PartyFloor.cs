@@ -26,7 +26,10 @@ public class PartyFloor : MonoBehaviour
     {
         get
         {
+            if (instance.currentSong != null)
             return instance.currentSong.BPM / 120.0f;
+
+            return 120.0f;
         }
     }
 
