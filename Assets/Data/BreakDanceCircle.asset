@@ -26,7 +26,14 @@ MonoBehaviour:
   partyGoerCountStdDev: 0
   partyGoerCountMin: 0
   partyGoerCountMax: 0
-  standardDancers: []
+  standardDancers:
+  - {fileID: 1010486053292474716, guid: c994e6d599eb0bc409e9dbee9ece0159, type: 3}
+  - {fileID: 988008010305352214, guid: 4b69f1056d0c8ed4d898ec0c79dd87ef, type: 3}
+  - {fileID: 5759163566496654774, guid: 0bdccb052b18e144f9ab14c36f3093e0, type: 3}
+  - {fileID: 8521681991674270300, guid: bceacc9699d627c4ca6cf4d1a8041826, type: 3}
+  - {fileID: 8069039334819838020, guid: ee20f1fade4a91f49a0e92a2a6bca2e3, type: 3}
   rareDancers: []
   dancerWeights: 
   rareDancerChance: 0
+  randomGuyLocations:
+  - {x: 0, y: 0, z: 0}

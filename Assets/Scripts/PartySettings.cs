@@ -26,6 +26,8 @@ public class PartySettings : ScriptableObject
     private List<int> dancerWeights;
     [BoxGroup("Partygoers")]
     public float rareDancerChance;
+    [BoxGroup("Partygoers")]
+    public List<Vector3> randomGuyLocations;
 
     public int GeneratePartygoerCount(){
         float f = Util.GetNormalDistFloat(partyGoerCountAvg, partyGoerCountStdDev, partyGoerCountMin, partyGoerCountMax);
