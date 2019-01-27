@@ -11,11 +11,10 @@ public class Partygoer : PartyProp
 {
     private const string Name = "speed";
     public Transform lookSpot;
-    Animator animator;
     public string danceTrigger;
 
-    void Awake(){
-        animator = GetComponent<Animator>();
+    protected override void Awake(){
+        base.Awake();
         if (!string.IsNullOrEmpty(danceTrigger)){
             animator.SetTrigger(danceTrigger);
         }

@@ -9,7 +9,9 @@ using NaughtyAttributes;
 
 public class PartyProp : MonoBehaviour
 {
+    protected Animator animator;
     public const int LAYER = 12;
+    private const string Name = "speed";
     private Rigidbody _rb;
     private Rigidbody rb{
         get{
@@ -20,6 +22,17 @@ public class PartyProp : MonoBehaviour
         }
     }
     public Vector3 minSpawnPos, maxSpawnPos;
+
+    protected virtual void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (animator)
+        animator.SetFloat(Name, PartyFloor.normalizedBPM);
+    }
 
     public PartyProp Spawn(){
         PartyProp prop = Instantiate(gameObject, GetSpawnVector(), transform.rotation).GetComponent<PartyProp>();

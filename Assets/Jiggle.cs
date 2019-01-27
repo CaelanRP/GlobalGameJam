@@ -8,6 +8,7 @@ public class Jiggle : MonoBehaviour
     public bool jiggle;
     public float intensity = 1;
     public bool cascading = false;
+    Rigidbody[] rigids;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,22 +22,43 @@ public class Jiggle : MonoBehaviour
         }
         if (jiggle)
         {
-            StartCoroutine(JiggleRoutine());
+            rigids = GetComponentsInChildren<Rigidbody>();
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (jiggle)
+        {
+            Speaker.thump += Jig;
+        }
+    }
+    private void OnDisable()
+    {
+        if (jiggle)
+        {
+            Speaker.thump -= Jig;
+        }
+    }
+
+
+    void Jig()
+    {
+        for (int i = 0; i < rigids.Length; i++)
+        {
+            rigids[i].AddForce(Random.insideUnitSphere * Random.Range(50, 20) * intensity, ForceMode.Impulse);
         }
     }
 
     IEnumerator JiggleRoutine()
     {
-        Rigidbody[] rigids = GetComponentsInChildren<Rigidbody>();
         if (cascading) {
             yield return new WaitForSeconds(.2f * Random.value);
         }
         while (true)
         {
-            for (int i = 0; i < rigids.Length; i++)
-            {
-                rigids[i].AddForce(Random.insideUnitSphere * Random.Range(50, 20)* intensity, ForceMode.Impulse);
-            }
+            Jig();
+            
             yield return new WaitForSeconds(.5f / PartyFloor.normalizedBPM);
         }
     }

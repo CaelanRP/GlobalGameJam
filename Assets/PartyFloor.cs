@@ -53,7 +53,20 @@ public class PartyFloor : MonoBehaviour
         if (generateOnStart){
             GenerateParty(defaultParty);
         }
+        Speaker.thump += MaybeSwitchParty;
     }
+    int beats = 0;
+    void MaybeSwitchParty()
+    {
+        beats++;
+        Debug.Log("Beats " + beats);
+        if (beats == 16)
+        {
+            beats = 0;
+            GenerateParty(defaultParty);
+        }
+    }
+
     void Update(){
         if (input.GetButtonDown("LightSwitch")){
             GenerateParty(defaultParty);
