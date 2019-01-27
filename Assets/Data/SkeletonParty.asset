@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2711f3bc1fea224385cd3d753108902, type: 3}
-  m_Name: DefaultParty
+  m_Name: SkeletonParty
   m_EditorClassIdentifier: 
   songs:
   - {fileID: 11400000, guid: 6bd0de50aa790834888999821f660ffa, type: 2}
@@ -27,17 +27,12 @@ MonoBehaviour:
   - {fileID: 5013022024426272431, guid: 7f0779f8e6e7afd488444c3b4498ea32, type: 3}
   - {fileID: 454593082, guid: d56fe9b579015a047abbbeef4128c6c9, type: 3}
   - {fileID: 488823143, guid: 39b64b5c8c3e1c44b99bb66ca88ace72, type: 3}
-  partyGoerCountAvg: 40
-  partyGoerCountStdDev: 30
-  partyGoerCountMin: 1
-  partyGoerCountMax: 50
+  partyGoerCountAvg: 20
+  partyGoerCountStdDev: 10
+  partyGoerCountMin: 20
+  partyGoerCountMax: 30
   standardDancers:
-  - {fileID: 1010486053292474716, guid: c994e6d599eb0bc409e9dbee9ece0159, type: 3}
-  - {fileID: 8069039334819838020, guid: ee20f1fade4a91f49a0e92a2a6bca2e3, type: 3}
-  - {fileID: 988008010305352214, guid: 4b69f1056d0c8ed4d898ec0c79dd87ef, type: 3}
-  rareDancers:
-  - {fileID: 4728432387559784943, guid: 32b08308b1439d64b8af7e371e395c58, type: 3}
   - {fileID: 5759163566496654774, guid: 0bdccb052b18e144f9ab14c36f3093e0, type: 3}
-  - {fileID: 8521681991674270300, guid: bceacc9699d627c4ca6cf4d1a8041826, type: 3}
+  rareDancers: []
   dancerWeights: 0500000001000000
   rareDancerChance: 0.05
