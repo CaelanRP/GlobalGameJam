@@ -29,7 +29,7 @@ public class PartyFloor : MonoBehaviour
             if (instance.currentSong != null)
             return instance.currentSong.BPM / 120.0f;
 
-            return 120.0f;
+            return 1;
         }
     }
 

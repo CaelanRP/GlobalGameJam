@@ -35,6 +35,7 @@ MonoBehaviour:
   - {fileID: 1010486053292474716, guid: c994e6d599eb0bc409e9dbee9ece0159, type: 3}
   - {fileID: 8069039334819838020, guid: ee20f1fade4a91f49a0e92a2a6bca2e3, type: 3}
   - {fileID: 988008010305352214, guid: 4b69f1056d0c8ed4d898ec0c79dd87ef, type: 3}
+  - {fileID: 4954600581198646739, guid: dde2da43d8bfb4d44984d323c89faa51, type: 3}
   rareDancers:
   - {fileID: 4728432387559784943, guid: 32b08308b1439d64b8af7e371e395c58, type: 3}
   - {fileID: 5759163566496654774, guid: 0bdccb052b18e144f9ab14c36f3093e0, type: 3}
