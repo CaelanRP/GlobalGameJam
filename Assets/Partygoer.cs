@@ -18,6 +18,7 @@ public class Partygoer : PartyProp
         if (!string.IsNullOrEmpty(danceTrigger)){
             animator.SetTrigger(danceTrigger);
         }
+        animator.SetFloat("dance", UnityEngine.Random.Range(0, 4));
     }
 
     void Start(){
