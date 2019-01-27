@@ -794,6 +794,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 1}
   m_Center: {x: 0, y: 0, z: -0.5}
+--- !u!114 &2101636189381265885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700299211864567768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a071c8aeeef5948ad3f005bed24a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawnPos: {x: 0, y: 0, z: 0}
+  maxSpawnPos: {x: 0, y: 0, z: 0}
+--- !u!1 &3700299211864567768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3700299211864567768, guid: 687103186dc853049931a95a21d7ff60,
+    type: 3}
+  m_PrefabInstance: {fileID: 8715252390871127133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5962696153281946994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1542,6 +1562,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: secretSpeaker variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700299211864567768, guid: 687103186dc853049931a95a21d7ff60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3700299211865060344, guid: 687103186dc853049931a95a21d7ff60,
         type: 3}
