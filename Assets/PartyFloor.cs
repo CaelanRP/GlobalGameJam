@@ -65,7 +65,7 @@ public class PartyFloor : MonoBehaviour
         if (beats == 16)
         {
             beats = 0;
-            GenerateParty(defaultParty);
+            StartParty();
         }
     }
 

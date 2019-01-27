@@ -37,5 +37,6 @@ MonoBehaviour:
   - {fileID: 4728432387559784943, guid: 32b08308b1439d64b8af7e371e395c58, type: 3}
   - {fileID: 5759163566496654774, guid: 0bdccb052b18e144f9ab14c36f3093e0, type: 3}
   - {fileID: 8521681991674270300, guid: bceacc9699d627c4ca6cf4d1a8041826, type: 3}
+  - {fileID: 1294852433132717423, guid: 8d25eacfc8f8cb04ba8fd202fc88290d, type: 3}
   dancerWeights: 0500000001000000
   rareDancerChance: 0.05
