@@ -22,6 +22,7 @@ public class PartyProp : MonoBehaviour
         }
     }
     public Vector3 minSpawnPos, maxSpawnPos;
+    public bool excludeFromDeletion;
 
     protected virtual void Awake()
     {
@@ -54,7 +55,9 @@ public class PartyProp : MonoBehaviour
     }
 
     void Start(){
-        PartyFloor.props.Add(this);
+        if (!excludeFromDeletion){
+            PartyFloor.props.Add(this);
+        }
     }
 
     public Vector3 GetSpawnVector(){
