@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleProps:
   - {fileID: 382460375505944233, guid: 319c5aaebe3f24a4283e2043f4ebe520, type: 3}
+  - {fileID: 9162005303877523178, guid: 677d8fb3e4e4dac498ba8f0d8043ea74, type: 3}
+  - {fileID: 6091716192415722708, guid: 2698a1f87d65d934eb93a0738e4944e3, type: 3}
   propChance: 0.4
 --- !u!1 &1702706717
 GameObject:
@@ -91,6 +93,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleProps:
   - {fileID: 382460375505944233, guid: 319c5aaebe3f24a4283e2043f4ebe520, type: 3}
+  - {fileID: 9162005303877523178, guid: 677d8fb3e4e4dac498ba8f0d8043ea74, type: 3}
+  - {fileID: 6091716192415722708, guid: 2698a1f87d65d934eb93a0738e4944e3, type: 3}
   propChance: 0.4
 --- !u!1 &8580668015682350451
 GameObject:

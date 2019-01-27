@@ -23,19 +23,25 @@ public class PartyProp : MonoBehaviour
 
     public PartyProp Spawn(){
         PartyProp prop = Instantiate(gameObject, GetSpawnVector(), transform.rotation).GetComponent<PartyProp>();
+        if (rb){
+            RaycastHit[] hits = rb.SweepTestAll(Vector3.up, 0.1f);
+            int tries = 4;
         
-        RaycastHit[] hits = rb.SweepTestAll(Vector3.up, 0.1f);
-        int tries = 4;
-        while(hits.Any(h => h.collider.GetComponent<PartyProp>())){
-            prop.transform.position = GetSpawnVector();
-            hits = rb.SweepTestAll(Vector3.up, 0.1f);
-            tries --;
-            if (tries == 0){
-                Destroy(prop.gameObject);
-                return null;
+            while(hits.Any(h => h.collider.GetComponent<PartyProp>())){
+                prop.transform.position = GetSpawnVector();
+                hits = rb.SweepTestAll(Vector3.up, 0.1f);
+                tries --;
+                if (tries == 0){
+                    Destroy(prop.gameObject);
+                    return null;
+                }
             }
         }
         return prop;
+    }
+
+    void Start(){
+        PartyFloor.props.Add(this);
     }
 
     public Vector3 GetSpawnVector(){
