@@ -44,11 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleProps:
-  - {fileID: 382460375505944233, guid: 319c5aaebe3f24a4283e2043f4ebe520, type: 3}
-  - {fileID: 9162005303877523178, guid: 677d8fb3e4e4dac498ba8f0d8043ea74, type: 3}
-  - {fileID: 6091716192415722708, guid: 2698a1f87d65d934eb93a0738e4944e3, type: 3}
-  - {fileID: 1010486053292474716, guid: c994e6d599eb0bc409e9dbee9ece0159, type: 3}
-  propChance: 0.4
+  - {fileID: 382460375505944233, guid: b4de81499f068f249809299e03e6c244, type: 3}
+  propChance: 1
 --- !u!1 &1702706717
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,11 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleProps:
-  - {fileID: 382460375505944233, guid: 319c5aaebe3f24a4283e2043f4ebe520, type: 3}
-  - {fileID: 9162005303877523178, guid: 677d8fb3e4e4dac498ba8f0d8043ea74, type: 3}
-  - {fileID: 6091716192415722708, guid: 2698a1f87d65d934eb93a0738e4944e3, type: 3}
-  - {fileID: 1010486053292474716, guid: c994e6d599eb0bc409e9dbee9ece0159, type: 3}
-  propChance: 0.4
+  - {fileID: 382460375505944233, guid: b4de81499f068f249809299e03e6c244, type: 3}
+  propChance: 1
 --- !u!1 &8580668015682350451
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +106,7 @@ GameObject:
   - component: {fileID: 1619328188089230613}
   - component: {fileID: 5163836331816417020}
   m_Layer: 12
-  m_Name: TableProp
+  m_Name: PizzaTableProp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

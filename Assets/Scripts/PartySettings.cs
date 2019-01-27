@@ -11,7 +11,7 @@ using NaughtyAttributes;
 public class PartySettings : ScriptableObject
 {
     [BoxGroup("Music")]
-    public int BPM;
+    public List<Song> songs;
     [BoxGroup("Dancing")]
     public float danceIntensity;
     [BoxGroup("Props")]
@@ -68,5 +68,9 @@ public class PartySettings : ScriptableObject
             num--;
         }
         return propsToReturn;
+    }
+
+    public Song GetSong(){
+        return Util.RandomSelection(songs);
     }
 }

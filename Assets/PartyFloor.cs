@@ -18,24 +18,28 @@ public class PartyFloor : MonoBehaviour
     public static List<Partygoer> partygoers = new List<Partygoer>();
     [HideInInspector]
     public static List<PartyProp> props = new List<PartyProp>();
-    public PartySettings defaultParty;
-    
-    public int bpm = 120;
+    public List<PartySettings> standardParties;
+    private PartySettings currentParty;
+    public List<PartySettings> rareParties;
 
     public static float normalizedBPM
     {
         get
         {
-            return instance.bpm / 120.0f;
+            return instance.currentSong.BPM / 120.0f;
         }
     }
+
+    [HideInInspector]
+    public Song currentSong;
     
     public static PartyFloor instance;
     public bool generateOnStart;
 
     public bool lightsOn;
-
-    public GameObject testProp;
+    public float rarePartyChance;
+    public int minBetweenRareParties;
+    int partiesSinceRare;
     void Awake(){
         instance = this;
         minBound = new Vector2(
@@ -89,9 +93,11 @@ public class PartyFloor : MonoBehaviour
     }
 
     public void StartParty(){
+        SetParty();
         ClearParty();
-        GenerateProps(defaultParty);
-        GenerateParty(defaultParty);
+        GenerateProps(currentParty);
+        GenerateParty(currentParty);
+        partiesSinceRare++;
     }
 
     public void GenerateParty(PartySettings settings){
@@ -122,7 +128,7 @@ public class PartyFloor : MonoBehaviour
         int partyGoerCount = settings.GeneratePartygoerCount();
         for(int i = 0; i < partyGoerCount; i++){
             GameObject partyGoerPrefab;
-            if (Util.random.NextDouble() < settings.rareDancerChance){
+            if (settings.rareDancers.Count > 0 && Util.random.NextDouble() < settings.rareDancerChance){
                 partyGoerPrefab = Util.RandomSelection<GameObject>(settings.rareDancers, d => 1);
             }
             else{
@@ -164,11 +170,21 @@ public class PartyFloor : MonoBehaviour
     void LightsOff(){
         lightsOn = false;
         ClearParty();
-        GenerateProps(defaultParty);
+        GenerateProps(currentParty);
     }
 
     void LightsOn(){
         lightsOn = true;
-        GenerateParty(defaultParty);
+        GenerateParty(currentParty);
+    }
+
+    void SetParty(){
+        if (rareParties.Count > 0 && partiesSinceRare > minBetweenRareParties && Util.random.NextDouble() < rarePartyChance){
+            currentParty = Util.RandomSelection(rareParties);
+        }
+        else{
+            currentParty = Util.RandomSelection(standardParties);
+        }
+        currentSong = currentParty.GetSong();
     }
 }
