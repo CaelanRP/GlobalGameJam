@@ -19,4 +19,8 @@ public class Partygoer : PartyProp
             animator.SetTrigger(danceTrigger);
         }
     }
+
+    void Start(){
+        PartyFloor.partygoers.Add(this);
+    }
 }

@@ -15,9 +15,9 @@ public class PartyFloor : MonoBehaviour
 
     Rewired.Player input;
     [HideInInspector]
-    public List<Partygoer> partygoers;
+    public static List<Partygoer> partygoers = new List<Partygoer>();
     [HideInInspector]
-    public List<PartyProp> props;
+    public static List<PartyProp> props = new List<PartyProp>();
     public PartySettings defaultParty;
     
     public int bpm = 120;
@@ -32,6 +32,8 @@ public class PartyFloor : MonoBehaviour
     
     public static PartyFloor instance;
     public bool generateOnStart;
+
+    public bool lightsOn;
 
     public GameObject testProp;
     void Awake(){
@@ -51,7 +53,7 @@ public class PartyFloor : MonoBehaviour
     private void Start()
     {
         if (generateOnStart){
-            GenerateParty(defaultParty);
+            StartParty();
         }
         Speaker.thump += MaybeSwitchParty;
     }
@@ -69,27 +71,32 @@ public class PartyFloor : MonoBehaviour
 
     void Update(){
         if (input.GetButtonDown("LightSwitch")){
-            GenerateParty(defaultParty);
-
+            StartParty();
         }
     }
 
     void ClearParty(){
+         
         while(partygoers.Count > 0){
             Destroy(partygoers[0].gameObject);
             partygoers.RemoveAt(0);
         }
+        
         while(props.Count > 0){
             Destroy(props[0].gameObject);
             props.RemoveAt(0);
         }
     }
 
+    public void StartParty(){
+        ClearParty();
+        GenerateProps(defaultParty);
+        GenerateParty(defaultParty);
+    }
+
     public void GenerateParty(PartySettings settings){
         Debug.Log("Generating party.");
-        ClearParty();
         LightManager.instance.Randomize();
-        GenerateProps(settings);
         GeneratePartygoers(settings);
     }
 
@@ -101,7 +108,7 @@ public class PartyFloor : MonoBehaviour
 
             PartyProp prop = possibleProps[i].GetComponent<PartyProp>().Spawn();
             if (prop){
-                props.Add(prop);
+                //props.Add(prop);
             }
             /* 
             GameObject partyGoerPrefab = Util.RandomSelection<GameObject>(possiblePartyGoers, p => settings.DancerWeight(possiblePartyGoers.IndexOf(p)));
@@ -133,7 +140,7 @@ public class PartyFloor : MonoBehaviour
         pos = transform.TransformPoint(pos);
 
         RaycastHit hit;
-        if (Physics.SphereCast(pos, 0.5f, Vector3.zero, out hit, 0.1f, PartyProp.LAYER)){
+        if (Physics.SphereCast(pos, 3f, Vector3.zero, out hit, 0.1f, PartyProp.LAYER)){
             return;
         }
 
@@ -143,5 +150,25 @@ public class PartyFloor : MonoBehaviour
 
     void SpawnProp(){
 
+    }
+
+    void ToggleLights(){
+        if (lightsOn){
+            LightsOff();
+        }
+        else{
+            LightsOn();
+        }
+    }
+
+    void LightsOff(){
+        lightsOn = false;
+        ClearParty();
+        GenerateProps(defaultParty);
+    }
+
+    void LightsOn(){
+        lightsOn = true;
+        GenerateParty(defaultParty);
     }
 }
