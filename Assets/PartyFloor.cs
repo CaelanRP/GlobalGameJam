@@ -69,7 +69,7 @@ public class PartyFloor : MonoBehaviour
     {
         beats++;
         Debug.Log("Beats " + beats);
-        if (beats == 16)
+        if (beats >= 16)
         {
             beats = 0;
             StartParty();

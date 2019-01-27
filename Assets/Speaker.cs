@@ -7,7 +7,7 @@ public class Speaker : MonoBehaviour
     public static UnityAction thump;
     public static Speaker mainSpeaker;
     public bool isSecretSpeaker;
-    private void Start()
+    private void Awake()
     {
         if (isSecretSpeaker){
             mainSpeaker = this;

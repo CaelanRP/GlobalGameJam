@@ -7,6 +7,7 @@ public class IndividualCamera : MonoBehaviour
     public Camera cam;
     public Camera individualCam;
     public Camera snapCam;
+    public Camera topDownCam;
 
     public GameObject snapchat;
     public TMPro.TextMeshProUGUI text;
@@ -28,8 +29,8 @@ public class IndividualCamera : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(1,5) * 2 * PartyFloor.normalizedBPM);
-
-            if (Random.value > 0.5f)
+            float rand = Random.value;
+            if (rand < 0.33f)
             {
                 if (PartyFloor.partygoers.Count == 0) yield break;
                 Transform snapper = PartyFloor.partygoers[Random.Range(0, PartyFloor.partygoers.Count)].lookSpot;
@@ -58,7 +59,7 @@ public class IndividualCamera : MonoBehaviour
                     snapchat.SetActive(false);
                 }
             }
-            else
+            else if (rand < 0.67f)
             {
                 if (PartyFloor.partygoers.Count == 0) yield break;
                 Transform target = PartyFloor.partygoers[Random.Range(0, PartyFloor.partygoers.Count)].lookSpot;
@@ -84,6 +85,23 @@ public class IndividualCamera : MonoBehaviour
                     cam.enabled = true;
                     individualCam.gameObject.SetActive(false);
                 }
+            }
+            else
+            {
+                cam.enabled = false;
+                Vector3 initPos = topDownCam.transform.position;
+                topDownCam.gameObject.SetActive(true);
+                float t = 0;
+                while (t < 1)
+                {
+                    t += (Time.unscaledDeltaTime * PartyFloor.normalizedBPM) / 4;
+                    topDownCam.transform.Translate(Vector3.forward * Time.deltaTime * 2);
+                    yield return null;
+                }
+
+                cam.enabled = true;
+                topDownCam.transform.position = initPos;
+                topDownCam.gameObject.SetActive(false);
             }
         }
     }
