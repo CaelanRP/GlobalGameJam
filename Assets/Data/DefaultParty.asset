@@ -27,10 +27,10 @@ MonoBehaviour:
   - {fileID: 5013022024426272431, guid: 7f0779f8e6e7afd488444c3b4498ea32, type: 3}
   - {fileID: 454593082, guid: d56fe9b579015a047abbbeef4128c6c9, type: 3}
   - {fileID: 488823143, guid: 39b64b5c8c3e1c44b99bb66ca88ace72, type: 3}
-  partyGoerCountAvg: 40
-  partyGoerCountStdDev: 30
+  partyGoerCountAvg: 30
+  partyGoerCountStdDev: 10
   partyGoerCountMin: 1
-  partyGoerCountMax: 50
+  partyGoerCountMax: 45
   standardDancers:
   - {fileID: 1010486053292474716, guid: c994e6d599eb0bc409e9dbee9ece0159, type: 3}
   - {fileID: 8069039334819838020, guid: ee20f1fade4a91f49a0e92a2a6bca2e3, type: 3}

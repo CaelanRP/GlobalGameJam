@@ -1,0 +1,24 @@
+diff a/Assets/PartyFloor.cs b/Assets/PartyFloor.cs	(rejected hunks)
+@@ -125,9 +125,20 @@
+         }
+     }
+ 
++    public enum StrangerType {Type, Hat, Size}
+     void GeneratePartygoers(PartySettings settings){
+-        List<GameObject> possiblePartyGoers = settings.GetRandomDancers(2);
+-        int partyGoerCount = settings.GeneratePartygoerCount();
++        List<GameObject> possiblePartyGoers = settings.GetRandomDancers(3);
++        int numOfSmallGroups = UnityEngine.Random.Range(0,4);
++
++        // Step one: decide on the size of the large group
++        int bigGroupCount = settings.GenerateBigGroupCount();
++        for(int i = 0; i < bigGroupCount; i++){
++            
++        }
++        for(int i = 0; i < numOfSmallGroups; i++){
++            int smallGroupCount = settings.GenerateSmallGroupCount();
++        }
++        /*
+         for(int i = 0; i < partyGoerCount; i++){
+             GameObject partyGoerPrefab;
+             if (settings.rareDancers.Count > 0 && Util.random.NextDouble() < settings.rareDancerChance){

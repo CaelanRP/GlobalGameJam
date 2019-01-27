@@ -26,6 +26,9 @@ public class PartyFloor : MonoBehaviour
     {
         get
         {
+            if (!instance.currentSong){
+                return 0;
+            }
             return instance.currentSong.BPM / 120.0f;
         }
     }
@@ -136,6 +139,7 @@ public class PartyFloor : MonoBehaviour
             }
             SpawnPartyGoer(partyGoerPrefab);
         }
+        
     }
 
     void SpawnPartyGoer(GameObject prefab){

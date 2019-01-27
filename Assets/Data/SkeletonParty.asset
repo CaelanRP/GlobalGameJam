@@ -28,9 +28,9 @@ MonoBehaviour:
   - {fileID: 454593082, guid: d56fe9b579015a047abbbeef4128c6c9, type: 3}
   - {fileID: 488823143, guid: 39b64b5c8c3e1c44b99bb66ca88ace72, type: 3}
   partyGoerCountAvg: 20
-  partyGoerCountStdDev: 10
-  partyGoerCountMin: 20
-  partyGoerCountMax: 30
+  partyGoerCountStdDev: 5
+  partyGoerCountMin: 1
+  partyGoerCountMax: 25
   standardDancers:
   - {fileID: 5759163566496654774, guid: 0bdccb052b18e144f9ab14c36f3093e0, type: 3}
   rareDancers: []
