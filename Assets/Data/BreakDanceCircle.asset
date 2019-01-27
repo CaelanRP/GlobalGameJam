@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2711f3bc1fea224385cd3d753108902, type: 3}
+  m_Name: BreakDanceCircle
+  m_EditorClassIdentifier: 
+  songs:
+  - {fileID: 11400000, guid: 6bd0de50aa790834888999821f660ffa, type: 2}
+  danceIntensity: 0.5
+  propCountAvg: 0
+  propCountStdDev: 0
+  propCountMin: 0
+  propCountMax: 0
+  standardProps: []
+  requiredProps:
+  - {fileID: 8739406633495111240, guid: aad9854ad7349d24b8cbfea7871a3014, type: 3}
+  partyGoerCountAvg: 0
+  partyGoerCountStdDev: 0
+  partyGoerCountMin: 0
+  partyGoerCountMax: 0
+  standardDancers: []
+  rareDancers: []
+  dancerWeights: 
+  rareDancerChance: 0

@@ -17,7 +17,7 @@ public class PartySettings : ScriptableObject
     [BoxGroup("Props")]
     public float propCountAvg, propCountStdDev, propCountMin, propCountMax;
     [BoxGroup("Props")][ReorderableList]
-    public List<GameObject> standardProps;
+    public List<GameObject> standardProps, requiredProps;
     [BoxGroup("Partygoers")]
     public float partyGoerCountAvg, partyGoerCountStdDev, partyGoerCountMin, partyGoerCountMax;
     [BoxGroup("Partygoers")][ReorderableList]
