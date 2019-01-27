@@ -23,10 +23,11 @@ public class IndividualCamera : MonoBehaviour
     // Update is called once per frame
     IEnumerator FindIndividuals()
     {
+        yield return new WaitForSeconds(4 * PartyFloor.normalizedBPM);
         float defaultFixedDeltaTime = Time.fixedDeltaTime;
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(2,5));
+            yield return new WaitForSeconds(Random.Range(1,5) * 2 * PartyFloor.normalizedBPM);
 
             if (Random.value > 0.5f)
             {
@@ -44,7 +45,7 @@ public class IndividualCamera : MonoBehaviour
                     snapCam.transform.LookAt(new Vector3(0, 1, 0));
                     while (t < 1)
                     {
-                        t += Time.unscaledDeltaTime / 4;
+                        t += (Time.unscaledDeltaTime * PartyFloor.normalizedBPM) / 4;
                         //Time.timeScale = slowMoCurve.Evaluate(t);
                         //Time.fixedDeltaTime = defaultFixedDeltaTime * slowMoCurve.Evaluate(t);
                         snapCam.transform.LookAt(target);
@@ -70,7 +71,7 @@ public class IndividualCamera : MonoBehaviour
                     individualCam.transform.LookAt(new Vector3(0, 1, 0));
                     while (t < 1)
                     {
-                        t += Time.unscaledDeltaTime / 2;
+                        t += (Time.unscaledDeltaTime * PartyFloor.normalizedBPM) / 2;
                         Time.timeScale = slowMoCurve.Evaluate(t);
                         Time.fixedDeltaTime = defaultFixedDeltaTime * slowMoCurve.Evaluate(t);
                         //transform.Translate(transform.right * Time.deltaTime);
