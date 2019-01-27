@@ -12,16 +12,13 @@ public class LightManager : MonoBehaviour
     }
     public Gradient ambientGradient;
     public Gradient backgroundGradient;
-
+    public Camera[] cameras;
     public GameObject spotlights;
     public GameObject dirlights;
-    Camera[] cameras;
     // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        cameras = FindObjectsOfType<Camera>();
-        
-        
 
         Randomize();
     }
@@ -30,8 +27,9 @@ public class LightManager : MonoBehaviour
     public void Randomize()
     {
         float randomColor = Random.value;
+        float randomColor2 = Random.value;
         float brightness = Random.value/2 + .5f;
-        RenderSettings.ambientLight = ambientGradient.Evaluate(randomColor) * brightness;
+        RenderSettings.ambientLight = ambientGradient.Evaluate(randomColor2) * brightness;
         for (int i = 0; i < cameras.Length; i++)
         {
             cameras[i].backgroundColor = backgroundGradient.Evaluate(randomColor);
@@ -64,7 +62,7 @@ public class LightManager : MonoBehaviour
         {
             spotlights.SetActive(false);
             dirlights.SetActive(false);
-            RenderSettings.ambientLight = ambientGradient.Evaluate(randomColor);
+            RenderSettings.ambientLight = ambientGradient.Evaluate(randomColor2);
         }
     }
     
