@@ -23,13 +23,15 @@ public class PartyFloor : MonoBehaviour
     public List<PartySettings> rareParties;
 
     public List<Song> songs;
+    [HideInInspector]
+    public float currentBPM;
 
     public static float normalizedBPM
     {
         get
         {
             if (instance.currentSong != null)
-            return instance.currentSong.BPM / 120.0f;
+            return instance.currentBPM / 120.0f;
 
             return 1;
         }
@@ -109,6 +111,7 @@ public class PartyFloor : MonoBehaviour
         {
             song = 0;
         }
+        currentBPM = currentSong.BPM;
     }
 
     void ClearParty(){
@@ -125,6 +128,7 @@ public class PartyFloor : MonoBehaviour
     }
 
     public void StartParty(){
+        beats = 0;
         SetParty();
         ClearParty();
         GenerateProps(currentParty);
@@ -251,6 +255,5 @@ public class PartyFloor : MonoBehaviour
         else {
             currentParty = Util.RandomSelection(standardParties);
         }
-        
     }
 }
