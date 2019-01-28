@@ -86,8 +86,10 @@ public class PartyFloor : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X)) 
         {
-            SwitchSong();
+           // SwitchSong();
         }
+
+
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
             Application.Quit();
